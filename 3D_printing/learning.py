@@ -10,18 +10,18 @@ class Game(ShowBase):
         properties = WindowProperties()
         properties.setSize(1000,700)
         self.win.requestProperties(properties) 
-
-
+        base.disableMouse()
 
         self.environment = loader.loadModel("Models/environment")
         self.environment.reparentTo(render)
 			
-        self.tempActor = Actor("Models/panda-model", {"walk" : "Models/panda-model_run"})
+        self.tempActor = Actor("Models/panda-model", {"walk" : "Models/panda-model"})
         self.tempActor.reparentTo(render)
         self.tempActor.setPos(0,7,0)
         self.tempActor.setScale(0.1)
-        self.tempActor.loop("walk")
 
+        self.camera.setPos(0,0,500)
+        self.camera.setP(-45)
 
 
 
